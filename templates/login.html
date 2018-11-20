@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log In</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/normalize.css')}}">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/modernizr-custom.js') }}"></script>
+</head>
+<body>
+
+	<header>
+		<ul class="options">
+			{% for opt in options %}
+				<li><a href="{{ url_for(opt) }}">{{opt}}</a></li>
+			{%endfor%}
+		</ul>
+	</header>
+
+	<center> 
+
+		<p>File Manager</p> 
+		<div class="message">
+			Manage your files anywhere for free!
+		</div>
+
+		<br>
+		<br>
+
+		<div class="container">
+			{{form.csrf}}
+				<form method="POST", action="{{url_for('Login')}}">
+					{{form.username(placeholder="Username", class="textfield", autocomplete="off")}}
+					{{form.password(placeholder="Password", class="textfield")}}
+					{% with messages = get_flashed_messages(with_categories=true) %}
+						{% if messages %}
+	        				{% for message in messages %}
+	            				{% if "Incorrect" in message[1]: %}
+	            					<p class="Error">{{message[1]}}</p>
+	            				{%endif%}
+	            			{%endfor%}
+	            		{%endif%}
+	            	{%endwith%}
+					{{form.button(class="login_button")}}
+				</form>
+
+
+		</div>
+	</center>
+
+</body>
+</html>

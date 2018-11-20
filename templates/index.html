@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File Saver</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/normalize.css')}}">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/modernizr-custom.js') }}"></script>
+</head>
+<body>
+
+	<header>
+		<ul class="options">
+			{% for opt in options %}
+				<li><a href="{{ url_for(opt) }}">{{opt}}</a></li>
+			{%endfor%}
+		</ul>
+	</header>
+
+	<p>File Manager</p>
+
+	<div class="message">
+		Manage your files anywhere for free!
+	</div>
+
+	<div class="container">
+		{{form.csrf}}
+		<center>
+			<form method="POST", action="{{url_for('CreateUser')}}">
+				{{form.mail(placeholder="Mail", class="textfield")}}
+				{{form.username(placeholder="Username", class="textfield", autocomplete="off")}}
+				{{form.password(placeholder="Password", class="textfield")}}
+				{{form.confirm_password(placeholder="Confirm Password", class="textfield")}}
+
+				{% with messages = get_flashed_messages(with_categories=true) %}
+            		{% if messages %}
+       					 {% for message in messages %}
+            				<div class="Error">{{message[1]}}</div>
+	            		{%endfor%}
+	            	{%endif%}
+	            {%endwith%}
+
+				{{form.button(class="register_button")}}
+			</form>
+			
+		</center>	
+
+	</div>
+
+	
+</body>
+</html>

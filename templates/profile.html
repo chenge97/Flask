@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to your profile!!</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='css/profile.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/normalize.css')}}">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/modernizr-custom.js') }}"></script>
+	
+	
+</head>
+<body>
+	<a href="{{url_for('Logout')}}" class="logout">Log Out</a>
+{% if results %}
+
+	<center>
+		<p class="title"> Your Storage </p>
+
+ 		
+		<table width="40%">
+			{% for row in results: %}
+			<tr height="70px">
+				
+				<td width="25%"> <p class="hour"> {{row[0]}}</p>  </td>
+				<td height="50%"> <center> <p class="name_file"> {{row[1]}} </p> </td> </center>
+				<form method="POST" action="{{url_for('file_delete')}}">
+					<input type="hidden" name="fdelete" value="{{row[1]}}">
+					<input type="hidden" name="id_delete" value="{{row[2]}}">
+					<td width="25%"> <input type="submit" class="delete" value="Delete"></td>
+				</form>
+				
+			</tr>
+			{%endfor%}
+		</table>
+		<form method="POST" action="{{url_for('upload')}}" enctype = "multipart/form-data">
+			<input type="file" name="file_add" id="file" class="upload" />
+			<div id="file_button" >
+				
+				<label for="file" id="name_file">Add Files</label>
+			</div>
+			<br>
+			<br>
+			<br>
+			<input type="submit" value="Send" class="add">
+		</form>
+	</center>
+{% else %}
+	<center>
+		<p class="title"> Your Storage </p>
+
+		<p class="no_message"> No files had been uploades yet </p>
+
+		<form method="POST" action="{{url_for('upload')}}" enctype = "multipart/form-data">
+			<input type="file" name="file_add" id="file" class="upload" />
+			<div id="file_button" >
+				
+				<label for="file" id="name_file">Add Files</label>
+			</div>
+			<br>
+			<br>
+			<br>
+			<input type="submit" value="Send" class="add">
+		</form>
+	</center>
+{% endif %}
+
+
+
+
+</body>
+</html>
