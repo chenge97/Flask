@@ -1,0 +1,126 @@
+header{
+	height: 60px;
+	width:100%;
+	background-color: #FFFFFF;
+	position: fixed;
+	top: 0px;
+}
+
+body{
+	background-color: #80C0E3;
+	width: 100%;
+	height: 635px;
+	
+}
+
+.options{
+	float: right;
+	margin-right: 150px;
+}
+.options li { /*Deleting the li dot*/
+  display: inline;
+
+}
+
+.options li + li { /*Space between options*/
+  margin-left: 35px;
+
+}
+
+.options li a { /*To delete the line of the hyperlink*/
+  color: #000000;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+
+}
+
+p{
+	color: #FFFFFF;
+	font-size: 72px;
+	position: fixed;
+	top: 170px;
+	left: 330px;
+}
+
+.message{
+	color: #FFFFFF;
+	font-size: 36px;
+	position: fixed;
+	top: 400px;
+	left: 260px;	
+}
+
+.container{
+	background-color: #FFFFFF;
+	position: fixed;
+	top: 150px;
+	right: 150px;
+	height: 500px;
+	width: 500px;
+	border-radius: 25px; /*Giving a round shape to the container*/
+}
+
+.textfield{
+	border-radius: 25px;
+    border: 2px solid #000000;
+    width: 80%;
+    height: 30px;
+    margin-top: 40px;
+    outline-width: 0; /*Removes the highlight of a  textfield*/
+    padding-left: 25px;
+}
+
+
+.register_button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #a4e271;
+	box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809));
+	background:-moz-linear-gradient(top, #89c403 5%, #77a809 100%);
+	background:-webkit-linear-gradient(top, #89c403 5%, #77a809 100%);
+	background:-o-linear-gradient(top, #89c403 5%, #77a809 100%);
+	background:-ms-linear-gradient(top, #89c403 5%, #77a809 100%);
+	background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403', endColorstr='#77a809',GradientType=0);
+	background-color:#89c403;
+	-moz-border-radius:13px;
+	-webkit-border-radius:13px;
+	border-radius:13px;
+	border:1px solid #74b807;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	font-weight:bold;
+	padding:17px 49px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528009;
+	margin-top: 80px;
+}
+.register_button:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403));
+	background:-moz-linear-gradient(top, #77a809 5%, #89c403 100%);
+	background:-webkit-linear-gradient(top, #77a809 5%, #89c403 100%);
+	background:-o-linear-gradient(top, #77a809 5%, #89c403 100%);
+	background:-ms-linear-gradient(top, #77a809 5%, #89c403 100%);
+	background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403',GradientType=0);
+	background-color:#77a809;
+}
+.register_button:active {
+	position:relative;
+	top:1px;
+}
+
+.Error{
+	color: red;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;	
+	margin-top: 20px;
+
+
+}
+
